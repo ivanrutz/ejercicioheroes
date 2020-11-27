@@ -54,10 +54,12 @@ app.get('/heroes/bio/:id/:ok?', (req,res) => {
 	
 	if(heroe > heroes.length){
 		res.send('No encontramos un héroe para mostrarte su biografía')
-	}else{ 
+	}else if (req.params.ok){ 
 		res.send(`${heroe.nombre} ▬ ${heroe.resenia}`)
 
 
+	}else{
+		res.send(`${heroe.nombre} ▬ Lamento que no quieras saber mas de mi :(`)
 	}
 
 	}
